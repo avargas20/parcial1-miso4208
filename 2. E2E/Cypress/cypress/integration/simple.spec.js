@@ -1,3 +1,18 @@
+describe('Test registry', function() {
+    it('Registry successful', function() {
+        cy.visit('https://todoist.com')
+        cy.contains('Signup').click()
+      	cy.get('form').find('input[name="full_name"]').click().type('avargas20')
+        cy.get('form').find('input[name="email"]').click().type('varca.software@gmail.com')
+        cy.get('form').find('input[name="pwd"]').click().type('12345678')
+        cy.wait(2000)
+        cy.screenshot();
+        cy.get('form').find('input[name="accept_terms"]').click()
+        cy.get('form').contains('Registrarse ahora').click()
+		cy.get('span[id="gear_holder"]').click().should('to.exist')
+    })
+})
+
 describe('Test login', function() {
     it('Successful login', function() {
         cy.visit('https://todoist.com/Users/showLogin?mini=1')
