@@ -1,16 +1,18 @@
-describe('Los estudiantes under monkeys', function() {
-    it('visits los estudiantes and survives monkeys', function() {
-        cy.visit('https://todoist.com/es');
-        cy.contains('Cerrar').click();
-        cy.wait(1000);
-        randomClick(10);
+describe('Todoist under monkeys', function() {
+    it('visits Todoist and survives monkeys', function() {
+        cy.visit('https://todoist.com/Users/showLogin?mini=1')
+      	cy.get('form').find('input[name="email"]').click().type('vargaspintoadriana@gmail.com')
+        cy.get('form').find('input[name="password"]').click().type('12345678')
+        cy.wait(1000)
+        randomClick(100);
     })
 
     it('Ripper test', function () {
-        cy.visit('https://todoist.com/es');
-        cy.contains('Cerrar').click();
-        cy.wait(1000);
-        randomEvent(50);
+        cy.visit('https://todoist.com/Users/showLogin?mini=1')
+      	cy.get('form').find('input[name="email"]').click().type('vargaspintoadriana@gmail.com')
+        cy.get('form').find('input[name="password"]').click().type('12345678')
+        cy.wait(1000)
+        randomEvent(100);
     })
 
 })
